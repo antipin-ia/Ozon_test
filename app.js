@@ -6,10 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const hideToggle = document.getElementById('hideToggle');
 
     let animationInterval;
-    let rotation = -90; // Начинаем с 12 часов
+    let rotation = -90; 
 
     function updateProgress(value) {
-        const clampedValue = Math.min(value, 100); // Ограничиваем значение до 100
+        const clampedValue = Math.min(value, 100); 
         const circumference = 565.48; // 2 * π * r (r = 90)
         const offset = circumference - (clampedValue / 100) * circumference;
         progressCircle.style.strokeDashoffset = offset;
@@ -24,12 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function stopAnimation() {
         clearInterval(animationInterval);
-        progressCircle.style.transform = 'rotate(-90deg)'; // Сброс к 12 часам
+        progressCircle.style.transform = 'rotate(-90deg)'; // Сброс
         rotation = -90;
     }
 
     valueInput.addEventListener('input', () => {
-        const value = parseInt(valueInput.value, 10) || 0; // Преобразуем в число, если не число, то 0
+        const value = parseInt(valueInput.value, 10) || 0; 
         updateProgress(value);
     });
 
@@ -47,5 +47,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Начальная настройка
     updateProgress(0);
-    progressCircle.style.transform = 'rotate(-90deg)'; // Устанавливаем начальный поворот к 12 часам
+    progressCircle.style.transform = 'rotate(-90deg)';
 });
